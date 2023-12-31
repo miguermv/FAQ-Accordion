@@ -1,0 +1,129 @@
+:root {
+  --ff-sans: "WorkSans", sans-serif;
+
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --fs-300: 0.9rem;
+  --fs-400: 1rem;
+  --fs-600: 1.1rem;
+  --fs-800: 1.7rem;
+
+  --primary-text: hsl(292, 42%, 14%);
+  --neutral-text: hsl(292, 16%, 49%);
+
+  --clr-background: hsl(275, 100%, 97%);
+  --clr-bg-card: hsl(0, 0%, 100%);
+
+  --clr-accent: hsl(281, 83%, 54%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--clr-background);
+
+  display: grid;
+  place-content: center;
+
+  grid-template-columns: repeat(auto-fit, min(100%, 600px));
+  place-items: start;
+  min-height: 100vh;
+
+  place-items: start;
+  background-image: url(/assets/images/background-pattern-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.tap input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.tab__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.35s;
+}
+.tab input:checked ~ .tab__content {
+  max-height: 10rem;
+}
+
+.accordion {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-600);
+  overflow: hidden;
+}
+
+.tab__label,
+.tab__close {
+  display: flex;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.tab__label {
+  justify-content: space-between;
+  padding-block: 1rem;
+  max-width: 500px;
+}
+
+.tab__label::after {
+  content: url(/assets/images/icon-plus.svg);
+  width: 0.5em;
+  height: 0.5em;
+  text-align: center;
+  transition: all 0.35s;
+}
+
+.tab input:checked + .tab__label::after {
+  content: url(/assets/images/icon-minus.svg);
+}
+
+main {
+  color: var(--primary-text);
+  background: var(--clr-bg-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+p {
+  color: var(--neutral-text);
+  font-weight: var(--fw-regular);
+  font-size: 1rem;
+}
+
+h1 {
+  font-weight: var(--fw-bold);
+  font-size: 3rem;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+hr {
+  border: 1px solid hsl(0, 0%, 0%, 0.05);
+}
+
+.tab__label:hover {
+  color: var(--clr-accent);
+}
